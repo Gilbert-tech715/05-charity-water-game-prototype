@@ -13,3 +13,158 @@ Secondary Colors:
 - Pink:       #F16061
 
 */
+
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Main game container */
+.game-container {
+    background: linear-gradient(180deg, #7eb3e6 0%, #5a9dd5 100%);
+    border-radius: 40px;
+    padding: 40px 30px;
+    width: 400px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats container at the top */
+.stats-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-box {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+    font-size: 18px;
+    color: #4a90e2;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.money-box .stat-label {
+    color: #f5a623;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Game visual area */
+.game-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    min-height: 300px;
+}
+
+.faucet {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.water-drop {
+    font-size: 40px;
+    animation: drop 2s ease-in-out infinite;
+}
+
+@keyframes drop {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(80px);
+        opacity: 0.5;
+    }
+}
+
+.jerry-can {
+    font-size: 120px;
+    margin-top: 20px;
+}
+
+/* Switch Jerry Can button */
+.switch-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #ffd93d 0%, #f7b731 100%);
+    color: #2c3e50;
+    border: none;
+    border-radius: 30px;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 30px;
+}
+
+.switch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.switch-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Bottom control icons */
+.control-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.control-btn {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.control-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.control-btn .icon {
+    font-size: 32px;
+    color: #4a90e2;
+}

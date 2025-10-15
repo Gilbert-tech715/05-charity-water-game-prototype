@@ -1,3 +1,4 @@
+<!-- Tip: If your changes are not showing up, save this file and refresh your browser! -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
+    <div class="game-container">
+        <!-- Top stats boxes -->
+        <div class="stats-container">
+            <div class="stat-box liters-box">
+                <div class="stat-label">Liters Saved</div>
+                <div class="stat-value" id="litersValue">125 L</div>
+            </div>
+            <div class="stat-box money-box">
+                <div class="stat-label">Money Earned</div>
+                <div class="stat-value" id="moneyValue">$15</div>
+            </div>
+        </div>
+
+        <!-- Game visual area (faucet and jerry can) -->
+        <div class="game-visual">
+            <div class="faucet">🚰</div>
+            <div class="water-drop">💧</div>
+            <div class="jerry-can">🛢️</div>
+        </div>
+
+        <!-- Switch Jerry Can button -->
+        <button id="switchCanBtn" class="switch-btn">Switch Jerry Can</button>
+
+        <!-- Bottom control icons -->
+        <div class="control-icons">
+            <button id="pauseBtn" class="control-btn" title="Pause">
+                <span class="icon">⏸️</span>
+            </button>
+            <button id="restartBtn" class="control-btn" title="Restart">
+                <span class="icon">🔄</span>
+            </button>
+            <button id="soundBtn" class="control-btn" title="Sound">
+                <span class="icon">🔊</span>
+            </button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
