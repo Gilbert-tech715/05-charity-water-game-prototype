@@ -28,14 +28,16 @@ body {
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px; /* Add padding so game doesn't touch screen edges */
 }
 
-/* Main game container */
+/* Main game container - responsive width */
 .game-container {
     background: linear-gradient(180deg, #7eb3e6 0%, #5a9dd5 100%);
     border-radius: 40px;
     padding: 40px 30px;
-    width: 400px;
+    width: 100%;
+    max-width: 500px; /* Maximum width for desktop */
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
@@ -53,6 +55,7 @@ body {
     padding: 20px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    min-width: 0; /* Allows flex items to shrink below content size */
 }
 
 .stat-label {
@@ -70,6 +73,7 @@ body {
     font-size: 32px;
     font-weight: bold;
     color: #2c3e50;
+    word-break: break-word; /* Prevent overflow on small screens */
 }
 
 /* Game visual area */
@@ -79,32 +83,54 @@ body {
     align-items: center;
     margin: 40px 0;
     min-height: 300px;
+    position: relative; /* Position for absolute children */
 }
 
 .faucet {
     font-size: 80px;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 3; /* Faucet on top */
 }
 
 .water-drop {
     font-size: 40px;
-    animation: drop 2s ease-in-out infinite;
+    position: absolute;
+    top: 90px; /* Position below faucet */
+    z-index: 2; /* Water drop in middle */
+    animation: drop 2s ease-in infinite;
 }
 
+/* Updated animation to fall into jerry can */
 @keyframes drop {
-    0%, 100% {
+    0% {
         transform: translateY(0);
         opacity: 1;
     }
-    50% {
-        transform: translateY(80px);
-        opacity: 0.5;
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(140px); /* Falls into jerry can */
+        opacity: 0;
     }
 }
 
 .jerry-can {
     font-size: 120px;
     margin-top: 20px;
+}
+
+/* New style for jerry can image - keep original yellow color */
+.jerry-can-img {
+    width: 150px;
+    height: auto;
+    margin-top: 50px; /* Space from water drop path */
+    position: relative;
+    z-index: 1; /* Jerry can behind water drop */
+    /* Remove border-radius to let the blue background blend naturally */
+    /* Add soft shadow to blend with background without changing color */
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25));
 }
 
 /* Switch Jerry Can button */
@@ -121,6 +147,9 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
     margin-bottom: 30px;
+    /* Make button easier to tap on mobile */
+    min-height: 60px;
+    touch-action: manipulation; /* Prevents zoom on double-tap */
 }
 
 .switch-btn:hover {
@@ -138,6 +167,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
+    flex-wrap: wrap; /* Allow icons to wrap on very small screens */
 }
 
 .control-btn {
@@ -152,6 +182,7 @@ body {
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s, box-shadow 0.2s;
+    touch-action: manipulation; /* Prevents zoom on double-tap */
 }
 
 .control-btn:hover {
@@ -167,4 +198,190 @@ body {
 .control-btn .icon {
     font-size: 32px;
     color: #4a90e2;
+}
+
+/* Tablet screens (portrait) */
+@media (max-width: 768px) {
+    .game-container {
+        border-radius: 30px;
+        padding: 30px 20px;
+    }
+    
+    .stat-label {
+        font-size: 16px;
+    }
+    
+    .stat-value {
+        font-size: 28px;
+    }
+    
+    .faucet {
+        font-size: 70px;
+    }
+    
+    .water-drop {
+        font-size: 35px;
+        top: 80px;
+    }
+    
+    @keyframes drop {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(120px);
+            opacity: 0;
+        }
+    }
+    
+    .jerry-can {
+        font-size: 100px;
+    }
+    
+    /* Adjust jerry can image size for tablets */
+    .jerry-can-img {
+        width: 130px;
+        margin-top: 40px;
+    }
+    
+    .switch-btn {
+        font-size: 20px;
+        padding: 18px;
+    }
+    
+    .control-btn {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .control-btn .icon {
+        font-size: 28px;
+    }
+}
+
+/* Mobile phones (portrait) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .game-container {
+        border-radius: 20px;
+        padding: 20px 15px;
+    }
+    
+    .stats-container {
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .stat-box {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .stat-label {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    
+    .stat-value {
+        font-size: 24px;
+    }
+    
+    .game-visual {
+        margin: 30px 0;
+        min-height: 250px;
+    }
+    
+    .faucet {
+        font-size: 60px;
+    }
+    
+    .water-drop {
+        font-size: 35px;
+        top: 70px;
+    }
+    
+    @keyframes drop {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+    }
+    
+    .jerry-can {
+        font-size: 90px;
+    }
+    
+    /* Adjust jerry can image size for mobile */
+    .jerry-can-img {
+        width: 110px;
+        margin-top: 35px;
+    }
+    
+    .switch-btn {
+        font-size: 18px;
+        padding: 16px;
+        border-radius: 25px;
+        margin-bottom: 25px;
+    }
+    
+    .control-icons {
+        gap: 20px;
+    }
+    
+    .control-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .control-btn .icon {
+        font-size: 26px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .stat-label {
+        font-size: 12px;
+    }
+    
+    .stat-value {
+        font-size: 20px;
+    }
+    
+    .switch-btn {
+        font-size: 16px;
+    }
+    
+    .control-icons {
+        gap: 15px;
+    }
+    
+    .control-btn {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .control-btn .icon {
+        font-size: 24px;
+    }
+    
+    /* Adjust jerry can image size for very small phones */
+    .jerry-can-img {
+        width: 90px;
+        margin-top: 30px;
+    }
 }
