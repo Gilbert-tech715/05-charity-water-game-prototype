@@ -13,19 +13,37 @@
         <div class="stats-container">
             <div class="stat-box liters-box">
                 <div class="stat-label">Liters Saved</div>
-                <div class="stat-value" id="litersValue">125 L</div>
+                <div class="stat-value" id="litersValue">0 L</div>
             </div>
             <div class="stat-box money-box">
                 <div class="stat-label">Money Earned</div>
-                <div class="stat-value" id="moneyValue">$15</div>
+                <div class="stat-value" id="moneyValue">$0</div>
+            </div>
+        </div>
+
+        <!-- Timer and overflow counter -->
+        <div class="game-info">
+            <div class="info-item">
+                <span class="info-icon">⏱️</span>
+                <span class="info-text">Time: <span id="timerValue">60</span>s</span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">💔</span>
+                <span class="info-text">Overflows: <span id="overflowValue">0</span> / 3</span>
             </div>
         </div>
 
         <!-- Game visual area (faucet and jerry can) -->
         <div class="game-visual">
+            <!-- Progress bar showing fill level - moved above faucet -->
+            <div class="fill-progress">
+                <div class="fill-bar" id="fillBar"></div>
+            </div>
+            <div class="fill-label" id="fillLabel">0 / 20 L</div>
+            
             <div class="faucet">🚰</div>
             <div class="water-drop">💧</div>
-            <!-- New jerry can image with blue background -->
+            <!-- Jerry can image stays in place -->
             <img src="bluebackgroudjerrycar.png" alt="Yellow Jerry Can" class="jerry-can-img">
         </div>
 
@@ -45,6 +63,32 @@
             </button>
         </div>
     </div>
+
+    <!-- Game Over Screen (hidden by default) -->
+    <div class="game-over-screen" id="gameOverScreen">
+        <div class="game-over-content">
+            <!-- Celebration champagne (hidden by default) -->
+            <div class="celebration" id="celebration">
+                <div class="champagne-bottle">🍾</div>
+                <div class="confetti-container" id="confettiContainer"></div>
+            </div>
+            
+            <h2 class="game-over-title" id="gameOverTitle">Game Over!</h2>
+            <p class="game-over-message" id="gameOverMessage">Time's up!</p>
+            <div class="final-stats">
+                <div class="final-stat">
+                    <div class="final-label">Liters Saved</div>
+                    <div class="final-value" id="finalLiters">0 L</div>
+                </div>
+                <div class="final-stat">
+                    <div class="final-label">Money Earned</div>
+                    <div class="final-value" id="finalMoney">$0</div>
+                </div>
+            </div>
+            <button id="playAgainBtn" class="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
