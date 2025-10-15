@@ -21,6 +21,7 @@ Secondary Colors:
     --secondary-light-blue: #8BD1CB;
     --secondary-green: #4FCB53;
     --secondary-orange: #FF902A;
+    --secondary-orange-dark: #e67f1f;
     --secondary-red: #F5402C;
     --secondary-dark-green: #159A48;
     --secondary-pink: #F16061;
@@ -180,7 +181,7 @@ h1 {
 }
 
 .game-button.reset:hover {
-    background-color: #e67f1f;
+    background-color: var(--secondary-orange-dark);
 }
 
 /* Responsive Design for Mobile */

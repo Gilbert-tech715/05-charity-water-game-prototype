@@ -1,6 +1,11 @@
 // Log a message to the console to ensure the script is linked correctly
 console.log('JavaScript file is linked correctly.');
 
+// Game configuration constants
+const DROPLET_WIDTH = 30; // Width of a water droplet in pixels
+const DROPLET_FALL_SPEED = 2; // Pixels per frame
+const DROPLET_SPAWN_INTERVAL = 1500; // Milliseconds between new droplets
+
 // Game variables
 let score = 0;
 let waterCollected = 0;
@@ -20,7 +25,7 @@ function createWaterDroplet() {
     droplet.className = 'water-droplet';
     
     // Random horizontal position
-    const randomX = Math.random() * (gameArea.offsetWidth - 30);
+    const randomX = Math.random() * (gameArea.offsetWidth - DROPLET_WIDTH);
     droplet.style.left = `${randomX}px`;
     droplet.style.top = '0px';
     
@@ -47,7 +52,6 @@ function createWaterDroplet() {
     
     // Animate droplet falling
     let position = 0;
-    const fallSpeed = 2; // pixels per frame
     
     const fallInterval = setInterval(() => {
         if (!gameActive) {
@@ -56,7 +60,7 @@ function createWaterDroplet() {
             return;
         }
         
-        position += fallSpeed;
+        position += DROPLET_FALL_SPEED;
         droplet.style.top = `${position}px`;
         
         // Remove droplet if it reaches the bottom
@@ -82,7 +86,7 @@ function startGame() {
         if (gameActive) {
             createWaterDroplet();
         }
-    }, 1500); // Create a new droplet every 1.5 seconds
+    }, DROPLET_SPAWN_INTERVAL);
 }
 
 // Function to stop the game
