@@ -13,3 +13,256 @@ Secondary Colors:
 - Pink:       #F16061
 
 */
+
+/* CSS Variables for Brand Colors */
+:root {
+    --primary-yellow: #FFC907;
+    --primary-blue: #2E9DF7;
+    --secondary-light-blue: #8BD1CB;
+    --secondary-green: #4FCB53;
+    --secondary-orange: #FF902A;
+    --secondary-orange-dark: #e67f1f;
+    --secondary-red: #F5402C;
+    --secondary-dark-green: #159A48;
+    --secondary-pink: #F16061;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-light-blue) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Game Container */
+.game-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+/* Score Display */
+.score-display {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.score-item {
+    background-color: var(--primary-yellow);
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.score-label {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.score-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+}
+
+/* Game Area */
+.game-area {
+    position: relative;
+    height: 500px;
+    background: linear-gradient(180deg, var(--secondary-light-blue) 0%, white 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid var(--primary-blue);
+}
+
+/* Water Droplet */
+.water-droplet {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background-color: var(--primary-blue);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    cursor: pointer;
+    transition: transform 0.1s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.water-droplet:hover {
+    transform: scale(1.1);
+}
+
+.water-droplet:active {
+    transform: scale(0.95);
+}
+
+/* Jerry Can Container */
+.jerry-can-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.jerry-can-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Remove white background from image */
+    mix-blend-mode: multiply;
+}
+
+/* Buttons */
+.game-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.game-button {
+    background-color: var(--secondary-green);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.game-button:hover {
+    background-color: var(--secondary-dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.game-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-button.reset {
+    background-color: var(--secondary-orange);
+}
+
+.game-button.reset:hover {
+    background-color: var(--secondary-orange-dark);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+    
+    .game-container {
+        padding: 20px;
+        margin: 10px auto;
+    }
+    
+    .score-display {
+        gap: 10px;
+    }
+    
+    .score-item {
+        padding: 10px 20px;
+        min-width: 120px;
+    }
+    
+    .score-label {
+        font-size: 0.8rem;
+    }
+    
+    .score-value {
+        font-size: 1.5rem;
+    }
+    
+    .game-area {
+        height: 400px;
+    }
+    
+    .water-droplet {
+        width: 25px;
+        height: 35px;
+    }
+    
+    .jerry-can-container {
+        width: 120px;
+        height: 160px;
+        bottom: 15px;
+    }
+    
+    .game-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+    
+    .game-container {
+        padding: 15px;
+    }
+    
+    .score-item {
+        padding: 8px 15px;
+        min-width: 100px;
+    }
+    
+    .score-value {
+        font-size: 1.3rem;
+    }
+    
+    .game-area {
+        height: 350px;
+    }
+    
+    .jerry-can-container {
+        width: 100px;
+        height: 140px;
+        bottom: 10px;
+    }
+}
