@@ -27,7 +27,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Match background to jerry can yellow with a warm orange accent */
+    background: linear-gradient(135deg, #FFC907 0%, #FFB348 100%);
     padding: 20px; /* Add padding so game doesn't touch screen edges */
 }
 
